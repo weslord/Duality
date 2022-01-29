@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class MainController : MonoBehaviour
+public class OtherController : MonoBehaviour
 {
     float MOVE_SPEED = 0.1f;
-
-    void Start() {
-        // create rectangle?
-    }
 
     void Update() {
         float dx = Input.GetAxisRaw("Horizontal") * MOVE_SPEED;
