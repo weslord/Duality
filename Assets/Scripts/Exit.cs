@@ -15,6 +15,9 @@ public class Exit : MonoBehaviour
         exitCount++;
 
         if (exitCount == requiredExits ) {
+            //TODO: fix this! counts the extra collider on other...
+            //      make exits specific to each character?
+            //      ignore other collider layer?
             LoadNextLevel();
             exitCount = 0;
         }

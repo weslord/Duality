@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7542835233235683386}
   - component: {fileID: 7542835233235683391}
   - component: {fileID: 7542835233235683332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,3 +197,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d781f377576154189d4cf1e6a4ac09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredExits: 2
