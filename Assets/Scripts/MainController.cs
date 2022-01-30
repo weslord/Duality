@@ -11,4 +11,6 @@ public class MainController : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(dx, dy);
     }
+
+
 }
