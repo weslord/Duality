@@ -1,21 +1,14 @@
 using UnityEngine;
 
-
 public class MainController : MonoBehaviour
 {
-    float MOVE_SPEED = 0.1f;
+    public float moveSpeed = 75f;
 
-    void Update() {
-        float dx = Input.GetAxisRaw("Horizontal") * MOVE_SPEED;
-        float dy = Input.GetAxisRaw("Vertical") * MOVE_SPEED;
-        transform.position = new Vector3(transform.position.x + dx, transform.position.y + dy, transform.position.z);
-    }
+    void FixedUpdate() {
+        float dx = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        float dy = Input.GetAxisRaw("Vertical") * moveSpeed;
 
-    void OnCollisionEnter(Collision collision) {
-        Debug.Log(collision);
-    }
-
-    void OnTriggerEnter(Collider collider) {
-        Debug.Log(collider);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(dx, dy);
     }
 }
