@@ -4,13 +4,17 @@ public class OtherController : MonoBehaviour
 {
     public float moveSpeed = 75f;
 
-    public Vector2 incomingVelocity = new Vector2(0, 0);
+    Rigidbody2D rb;
+
+    void Start() {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void FixedUpdate() {
-        // float dx = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        // float dy = Input.GetAxisRaw("Vertical") * moveSpeed;
+        float dx = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        float dy = Input.GetAxisRaw("Vertical") * moveSpeed;
+        Vector2 v = new Vector2(dx, dy);
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = incomingVelocity;
+        rb.velocity = v;
     }
 }
