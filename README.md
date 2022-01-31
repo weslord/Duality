@@ -50,6 +50,27 @@ In the end, it did end up saving me a bunch of time. But I'd mostly chalk that
 up to luck - I happened to be using it in exactly the limited way it was useful
 for.
 
+### Level Desgin
+
+I used a vector graphics library called "Shapes" to create all my visual
+elements.  It's a bit expensive, but I bought it a while ago when it was on
+sale, expecting I'd be doing a lot of vector work someday. It retrospect,
+though, it wasn't necessary for this project. I built everything out of
+primitive rectangles, and could have used Unity's built-in 2D rectangle shape
+instead.
+
+Walls were all instances of a prefab with a static rigidbody, no friction, and a
+box collider. The collider's shape was automatically synced to the size of the
+rectangles in `OnValidate()`, so creating levels was as simple as dropping in a
+prefab and stretching it to be where I wanted my walls.
+
+This is how I was able to throw together nearly two dozen levels in just a few
+hours - keeping the tools simple and easy.
+
+I do wish I'd finished coding earlier than I did, to have a bit more time to
+work on the levels. As it stands, the "harder" levels can easily be beaten by
+button mashing, rather than deliberate skill or puzzle solving.
+
 ### Physics
 
 No gravity, anti-friction material - can set project-wide as default.
@@ -58,13 +79,6 @@ Cumulative collider (sp?)
 
 Issues with inertia when pushing objects - follower character will
 de-synchronize position with main character if it's the only one pushing
-
-### Level Desgin
-
-Made it simple by having colliders auto-sync to visual rectangles in `validate()`
-
-Really hard to come up with something that's not just solvable by button-mashing
-Wish I'd had more time to develop...
 
 ## Credits
 
