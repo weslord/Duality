@@ -4,6 +4,14 @@ A simple puzzle game
 
 January 2022
 
+<https://weslord.com/games/duality/>
+
+## Controls
+
+- Arrow keys, WASD, or gamepad to move around
+- [ESC] or [CANCEL] to reset the level
+- [,] or [.] to skip levels (secret cheat code, shhhh!)
+
 ## Post Mortem
 
 Over the last couple days, I solo jammed out this game. Here are some thoughts
@@ -41,6 +49,22 @@ radar.
 In the end, it did end up saving me a bunch of time. But I'd mostly chalk that
 up to luck - I happened to be using it in exactly the limited way it was useful
 for.
+
+### Physics
+
+No gravity, anti-friction material - can set project-wide as default.
+
+Cumulative collider (sp?)
+
+Issues with inertia when pushing objects - follower character will
+de-synchronize position with main character if it's the only one pushing
+
+### Level Desgin
+
+Made it simple by having colliders auto-sync to visual rectangles in `validate()`
+
+Really hard to come up with something that's not just solvable by button-mashing
+Wish I'd had more time to develop...
 
 ## Credits
 
