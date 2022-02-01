@@ -15,7 +15,7 @@ January 2022
 ## Post Mortem
 
 Over the last couple days, I solo jammed out this game. Here are some thoughts
-about that process.
+(too many thoughts) about that process.
 
 ### Colour Palette
 
@@ -73,12 +73,37 @@ button mashing, rather than deliberate skill or puzzle solving.
 
 ### Physics
 
-No gravity, anti-friction material - can set project-wide as default.
+I'm using Unity's two dimensional physics for collision detection. And I guess
+to push blocks around in the later levels (spoiler warning, forget I said
+anything). But it would be a stretch to describe any other aspect of the game as
+a "physics simulation". We're fighting against pretty much every other physics
+feature to get the behaviour we want.
 
-Cumulative collider (sp?)
+First off, gravity. Can be turned off globally in the 2D Physics settings.
+Second off, friction. It's pretty important to keep the two blocks in sync, and
+they get out of sync very fast if one of them slows down every time it rubs
+against a wall. I made a physics material with zero friction, and applied it to
+all my prefabs - then later I noticed you can set a default physics material
+globally in the 2D Physics settings. So that would have been easier. (I set it
+there too, just in case.)
 
-Issues with inertia when pushing objects - follower character will
-de-synchronize position with main character if it's the only one pushing
+I made plans for a bunch of  cool control modes, but God laughs. You only get
+one, so you better like it. It's the most interesting one, anyways: the uni-
+directional link. Oooh! Aahhh!
+
+The way it works is a bit of a hack. Both character objects get the same
+controller inputs and process them the same. Each of them has their own
+collider, to stop them from ghosting through their own walls. But the right side
+character has a bonus child collider that syncs its position to the left side
+character. This works as a compound collider, so it suffers both constraints.
+
+It works pretty well for the limited scenarios currently in the game, but I
+wanted a mechanic in later levels where movements are mirrored or rotated around
+an axis. I don't think it's possible without an overhaul of the movement system.
+
+Also, there are issues with inertia when pushing objects. The right side
+character will de-synchronize position with left side character if it's the only
+one pushing a block.
 
 ## Credits
 
